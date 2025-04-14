@@ -1,2 +1,2 @@
 # mlops
-Repository for ML operations
+Repository for ML operations course at EWHA. 

@@ -11,9 +11,9 @@ download-data:
 	mv data/data.csv data/raw.csv 
 
 preprocess-data:
-	# @mkdir -p data/processed
+	@mkdir -p data/processed
 	# run the preprocessing script
-	python3 preprocess.py
+	python3 scripts/preprocess.py
 
 # Model training
 train-catboost:

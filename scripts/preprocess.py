@@ -51,7 +51,7 @@ y = df['diagnosis']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # write to file 
-X_train.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/X_train.csv', index=False)
-X_test.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/X_test.csv', index=False)
-y_train.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/y_train.csv', index=False)
-y_test.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/y_test.csv', index=False)
+X_train.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/X_train.csv', index=False)
+X_test.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/X_test.csv', index=False)
+y_train.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/y_train.csv', index=False)
+y_test.to_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/y_test.csv', index=False)

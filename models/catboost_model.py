@@ -4,8 +4,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pandas as pd
 
 # Load the preprocessed data
-X_train = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/X_train.csv')
-y_train = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/y_train.csv')
+X_train = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/X_train.csv')
+y_train = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/y_train.csv')
 
 # Define parameter grid for hyperparameter tuning
 param_grid = {

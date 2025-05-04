@@ -4,8 +4,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pandas as pd
 
 # Load the preprocessed data
-X_test = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/X_test.csv')
-y_test = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/y_test.csv')['diagnosis']
+X_test = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/X_test.csv')
+y_test = pd.read_csv('/Users/marinorfolk/Desktop/MLops_rep/mlops/data/processed/y_test.csv')['diagnosis']
 
 # Load the best model
 model = CatBoostClassifier()

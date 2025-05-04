@@ -1,6 +1,6 @@
 # 🤖 ML Ops Workflow for Breast Cancer Wisconsin
 
-This repository implements a full ML workflow for the Breast Cancer Wisconsin dataset, developed as part of the ML Operations course at EWHA University. All steps—from data ingestion through model training and evaluation—are managed through a Makefile.
+This repository implements a full ML workflow for the Breast Cancer Wisconsin dataset, developed as part of the ML Operations course at EWHA University. All steps from data loading through model training and evaluation are managed through the Makefile.
 
 ---
 

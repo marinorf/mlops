@@ -16,7 +16,7 @@ preprocess-data:
 	python3 preprocess.py
 
 # Model training
-train-model:
+train-catboost:
 	@mkdir -p models
 	# run the training script
 	python3 models/catboost_model.py

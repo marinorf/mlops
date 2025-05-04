@@ -1,60 +1,124 @@
-# mlops
-This repository contains an ML workflow for the Breast Cancer Wisconsin dataset, designed for ML operations course at EWHA university. The workflow is managed via a Makefile, which automates key steps such as data management, preprocessing, model training, and evaluation.
+# 🤖 ML Ops Workflow for Breast Cancer Wisconsin
 
-Workflow Overview
-1. Data Management
-Download Data:
-Downloads the Breast Cancer Wisconsin dataset from Kaggle and saves it as raw.csv in the data directory.
-Command: make download-data
-Prerequisite: Ensure you have a valid kaggle.json file in your environment to authenticate with Kaggle.
-Preprocess Data:
-Preprocesses the raw data and splits it into training and testing datasets (X_train.csv, y_train.csv, X_test.csv, y_test.csv) in the data directory.
-Command: make preprocess-data
+This repository implements a full ML workflow for the Breast Cancer Wisconsin dataset, developed as part of the ML Operations course at EWHA University. All steps—from data ingestion through model training and evaluation—are managed through a Makefile.
 
-2. Model Training
-Train CatBoost Model:
-Trains a CatBoost classifier using the preprocessed training data and saves the model in the models directory.
-Command: make train-catboost
+---
 
-Train MLJar AutoML Model:
-Trains an AutoML model using the MLJar library and saves the results in the models directory.
-Command: make train-MLJar
+## ⚙️ Workflow Overview
 
-3. Model Evaluation
-Evaluate Models:
-Evaluates the trained CatBoost and MLJar models using the test dataset and generates evaluation reports in the evaluate directory.
-Command: make evaluate-models
+1. **Data Management**  
+2. **Preprocessing**  
+3. **Model Training**  
+4. **Model Evaluation**  
+5. **Dependency Management**
 
-4. Dependency Management
-Install Dependencies:
-Installs all required Python packages listed in the requirements.txt file.
-Command: make install
+---
 
-File Structure
-data: Contains raw and preprocessed datasets, as well as predictions when these are done.
-models: Stores trained models and AutoML results.
-evaluate: Contains evaluation scripts.
-Makefile: Automates the workflow.
-preprocess.py: Handles data preprocessing and splitting.
-models/catboost_model.py: Script for training the CatBoost model.
-models/MLJAR_model.py: Script for training the MLJar AutoML model.
-evaluate: Scripts for evaluating the models.
+### 1. Data Management
 
-Usage
-Set Up Environment: 
-    Install dependencies: make install
+#### Download Data  
+Fetch the Breast Cancer Wisconsin dataset from Kaggle and save it as `data/raw.csv`.
 
-Download and Preprocess Data:
-    Download the dataset: make install
-    Preprocess the data: make preprocess-data
+<blockquote>
+<pre>
+make download-data
+</pre>
+</blockquote>
 
-Train Models:
-    Train the CatBoost model: make train-catboost
-    Train the MLJar AutoML model: make train-MLJar
+> **Prerequisite:** You must have a valid `kaggle.json` in `~/.kaggle/` (or set `KAGGLE_CONFIG_DIR`) for Kaggle API authentication.
 
-Evaluate Models:
-    Evaluate the trained models: make evaluate-models
+---
 
-Notes
-Testing: Automated tests for functions are currently not implemented in this project.
-Kaggle Authentication: Ensure you have a valid kaggle.json file to access the Kaggle API for downloading the dataset.
+### 2. Preprocessing
+
+#### Preprocess Raw Data  
+Clean the raw CSV, engineer features, and split into train/test sets:
+- `data/X_train.csv`
+- `data/y_train.csv`
+- `data/X_test.csv`
+- `data/y_test.csv`
+
+<blockquote>
+<pre>
+make preprocess-data
+</pre>
+</blockquote>
+
+---
+
+### 3. Model Training
+
+#### Train CatBoost Model  
+Train a CatBoost classifier on the processed training data and save the model artifact under `models/`.
+
+<blockquote>
+<pre>
+make train-catboost
+</pre>
+</blockquote>
+
+#### Train MLJAR AutoML Model  
+Launch an AutoML run with MLJAR‑Supervised, storing results in `models/AutoML_results/`.
+
+<blockquote>
+<pre>
+make train-MLJar
+</pre>
+</blockquote>
+
+---
+
+### 4. Model Evaluation
+
+#### Evaluate All Models  
+Compute accuracy, precision, recall, F1, confusion matrices, and output predictions under `evaluate/`.
+
+<blockquote>
+<pre>
+make evaluate-models
+</pre>
+</blockquote>
+
+---
+
+### 5. Dependency Management
+
+#### Install Python Packages  
+Install all required libraries as pinned in `requirements.txt`.
+
+<blockquote>
+<pre>
+make install
+</pre>
+</blockquote>
+
+---
+
+## 📂 Repository Structure
+```
+.
+├── Makefile                     # Automates the workflow
+├── requirements.txt             # Python dependencies
+├── data/                        # Raw & preprocessed datasets
+│   ├── raw.csv
+│   ├── processed/
+│       ├── X_train.csv
+│       ├── y_train.csv
+│       ├── X_test.csv
+│       └── y_test.csv
+├── models/                      # Model python files and saved models
+│   ├── best_catboost_model.cbm
+│   ├── catboost_model.py
+│   ├── MLJar_model.py
+│   └── AutoML_results/         
+├── scripts/                     # Pipeline scripts
+│   └── preprocess.py            # Data cleaning & train/test seperation
+├── evaluate/                    # Model evaluation scripts
+│   ├── evaluate_catboost.py
+│   └── evaluate_MLJar.py
+```
+
+### 📝 Notes
+Testing - tests of functions are not yet implemented.
+
+Kaggle Authentication - Ensure your Kaggle API token (kaggle.json) is in ~/.kaggle/.

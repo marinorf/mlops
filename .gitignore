@@ -172,3 +172,16 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+*.jpg
+
+*/AutoML_results
+
+*.csv
+
+*.tsv
+
+*/catboost_info
+
+*DS_Store
+
